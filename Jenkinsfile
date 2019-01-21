@@ -25,7 +25,7 @@ pipeline {
         }
         stage('product') {
             when {
-                branch 'master'
+                branch 'production'
             }
             steps {
                 sh 'npm run start'
