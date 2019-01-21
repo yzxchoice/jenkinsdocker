@@ -5,6 +5,9 @@ pipeline {
             args '-p 7001:7001' 
         }
     }
+    environment {
+        CI = 'true'
+    }
     stages {
         stage('Build') { 
             steps {
@@ -12,8 +15,21 @@ pipeline {
             }
         }
         stage('dev') {
+            when {
+                branch 'develop'
+            }
             steps {
                 sh 'npm run dev'
+                sh 'dev start'
+            }
+        }
+        stage('product') {
+            when {
+                branch 'master'
+            }
+            steps {
+                sh 'npm run start'
+                sh 'echo "end"'
             }
         }
     }
