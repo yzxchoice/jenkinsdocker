@@ -16,7 +16,7 @@ pipeline {
         }
         stage('product') {
             steps {
-                sh 'npm run start'
+                sh 'npm run dev'
                 sh 'echo "end"'
             }
         }
