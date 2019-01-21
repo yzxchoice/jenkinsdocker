@@ -24,10 +24,8 @@ pipeline {
             }
         }
         stage('product') {
-            when {
-                expression { BRANCH_NAME ==~ /^(release|hotfix\/.*)$/ }
-            }
             steps {
+                sh 'echo "production start"'
                 sh 'npm run start'
                 sh 'echo "end"'
             }
