@@ -8,7 +8,7 @@ pipeline {
     stages {
         stage('Build') { 
             steps {
-                sh 'install.sh' 
+                sh 'npm i --registry=http://http://10.63.5.12:8081/repository/npmgroup/' 
             }
         }
         stage('dev') {
