@@ -21,7 +21,7 @@
     "node": ">=8.9.0"
   },
   "scripts": {
-    "start": "egg-scripts start --daemon --title=egg-server-example",
+    "start": "egg-scripts start --workers=2 --title=egg-server-example",
     "stop": "egg-scripts stop --title=egg-server-example",
     "dev": "egg-bin dev",
     "debug": "egg-bin debug",
