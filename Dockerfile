@@ -1,12 +1,10 @@
 FROM node:10-alpine
 LABEL author="mic"
 
-# Create app directory
-RUN mkdir -p /code
-WORKDIR /code
-# Bundle app source
-COPY . /code
+ENV NODE_ENV=development
+ADD . /app/
+WORKDIR /app
 
-RUN npm i --registry=http://10.63.5.12:8081/repository/npmgroup/
+RUN npm i --production --registry=http://10.63.5.12:8081/repository/npmgroup/
 
-CMD npm start
+CMD ["npm", "start"]
