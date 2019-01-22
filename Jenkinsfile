@@ -5,4 +5,11 @@ pipeline {
             args '-p 7001:7001' 
         }
     }
+    stages {
+        stage('Test') {
+            steps {
+                sh 'node --version'
+            }
+        }
+    }
 }
